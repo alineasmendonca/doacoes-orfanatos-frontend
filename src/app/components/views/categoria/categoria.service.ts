@@ -3,6 +3,7 @@ import { environment } from './../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,24 @@ import { Observable } from 'rxjs';
 export class CategoriaService {
   baseUrl: string = environment.baseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private snack: MatSnackBar) { }
 
   findAll(): Observable<Categoria[]>{
     const url = `${this.baseUrl}/categorias`;
     return this.http.get<Categoria[]>(url);
+  }
+
+  create(categoria: Categoria): Observable<Categoria>{
+    const url = `${this.baseUrl}/categorias`;
+    return this.http.post<Categoria>(url, categoria);
+  }
+
+  mensagem(str: string): void {
+    this.snack.open(`${str}`, 'OK', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      duration: 5000
+    });
   }
 }
