@@ -14,14 +14,25 @@ export class CategoriaService {
   constructor(private http: HttpClient,
     private snack: MatSnackBar) { }
 
+  findById(id: number): Observable<Categoria>{
+    const url = `${this.baseUrl}/categorias/${id}`;
+    return this.http.get<Categoria>(url);
+  }
+
   findAll(): Observable<Categoria[]>{
     const url = `${this.baseUrl}/categorias`;
     return this.http.get<Categoria[]>(url);
   }
 
+
   create(categoria: Categoria): Observable<Categoria>{
     const url = `${this.baseUrl}/categorias`;
     return this.http.post<Categoria>(url, categoria);
+  }
+
+  delete(id: number): Observable<void>{
+    const url = `${this.baseUrl}/categorias/${id}`;
+    return this.http.delete<void>(url);
   }
 
   mensagem(str: string): void {
