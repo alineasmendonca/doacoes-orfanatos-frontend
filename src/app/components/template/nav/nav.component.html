@@ -1,7 +1,7 @@
 <mat-sidenav-container class="container">
     <mat-sidenav class="side" mode="side" opened>
         <mat-nav-list>
-            <a routerLink="" mat-list-item>
+            <a routerLink="/home" mat-list-item>
                 <i class="material-icons">home</i>
                 Home
             </a>
@@ -13,7 +13,7 @@
             </a>
         </mat-nav-list>
         <mat-nav-list>
-            <a mat-list-item>
+            <a routerLink="/doacoes" mat-list-item>
                 <i class="material-icons">volunteer_activism</i>
                 Doações
             </a>
@@ -28,6 +28,13 @@
             <a mat-list-item>
                 <i class="material-icons">person</i>
                 Usuários
+            </a>
+        </mat-nav-list>
+
+        <mat-nav-list>
+            <a (click)="logout()" mat-list-item>
+                <i class="material-icons">logout</i>
+                Sair
             </a>
         </mat-nav-list>
 

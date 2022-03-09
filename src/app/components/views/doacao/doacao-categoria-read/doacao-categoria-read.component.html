@@ -1,11 +1,11 @@
 <div class="content">
     <div class="title">
-        <h1>Categorias</h1>
+        <h1>Doações</h1>
     </div>
-    <button class="mat-elevation-z8" (click)="incluirCategoria()" mat-stroked-button color="primary">Incluir Categoria</button>
+    <button (click)="incluirDoacao()" class="mat-elevation-z8" mat-stroked-button color="primary">Incluir Doação</button>
 
     <div class="mat-elevation-z8 content-table">
-        <table class="table" mat-table [dataSource]="categorias">
+        <table class="table" mat-table [dataSource]="doacoes">
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
@@ -14,24 +14,24 @@
                 <td mat-cell *matCellDef="let row; let i = index">{{row.id}}</td>
             </ng-container>
 
-            <ng-container matColumnDef="nome">
-                <th mat-header-cell *matHeaderCellDef>Nome</th>
-                <td mat-cell *matCellDef="let row; let i = index">{{row.nome}}</td>
-            </ng-container>
-
             <ng-container matColumnDef="descricao">
                 <th mat-header-cell *matHeaderCellDef>Descrição</th>
                 <td mat-cell *matCellDef="let row; let i = index">{{row.descricao}}</td>
             </ng-container>
-            
-            <ng-container matColumnDef="doacoes">
+
+            <ng-container matColumnDef="quantidade">
+                <th mat-header-cell *matHeaderCellDef>Quantidade</th>
+                <td mat-cell *matCellDef="let row; let i = index">{{row.quantidade}}</td>
+            </ng-container>
+
+            <!--<ng-container matColumnDef="doacoes">
                 <th mat-header-cell *matHeaderCellDef>Doações</th>
                 <td mat-cell *matCellDef="let row; let i = index">
                     <a class="doacoes" routerLink="{{row.id}}/doacoes">
                         <i class="material-icons">volunteer_activism</i>
                     </a>
                 </td>
-            </ng-container>
+            </ng-container>-->
 
             <ng-container matColumnDef="acoes">
                 <th class="mat-header" mat-header-cell *matHeaderCellDef>Ações</th>

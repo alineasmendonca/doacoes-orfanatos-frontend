@@ -14,7 +14,8 @@ export class CategoriaUpdateComponent implements OnInit {
   categoria: Categoria = {
     id: 0,
     nome: '',
-    descricao: ''
+    descricao: '',
+    quantidade: 0
   }
   constructor(private service: CategoriaService,
     private route: ActivatedRoute,

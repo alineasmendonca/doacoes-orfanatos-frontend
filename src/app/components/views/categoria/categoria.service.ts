@@ -1,6 +1,7 @@
+import { AuthService } from './../../../auth.service';
 import { Categoria } from './categoria-read/categoria.model';
 import { environment } from './../../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,14 +13,23 @@ export class CategoriaService {
   baseUrl: string = environment.baseUrl;
 
   constructor(private http: HttpClient,
-    private snack: MatSnackBar) { }
+    private snack: MatSnackBar,
+    private authService: AuthService) { }
 
   findById(id: number): Observable<Categoria>{
+    const usernameAppUser = this.authService.getAuthenticadtedUser();
+    const httpParams = new HttpParams()
+      .set("username", usernameAppUser);
+
     const url = `${this.baseUrl}/categorias/${id}`;
     return this.http.get<Categoria>(url);
   }
 
   findAll(): Observable<Categoria[]>{
+    const usernameAppUser = this.authService.getAuthenticadtedUser();
+    const httpParams = new HttpParams()
+      .set("username", usernameAppUser);
+
     const url = `${this.baseUrl}/categorias`;
     return this.http.get<Categoria[]>(url);
   }

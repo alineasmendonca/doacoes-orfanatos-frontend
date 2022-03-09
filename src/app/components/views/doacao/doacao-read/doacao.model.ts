@@ -1,6 +1,6 @@
-export interface Categoria {
+export interface Doacao {
     id?: number;
-    nome: string;
     descricao: string;
     quantidade: number;
+    // Colocar os demais campos aqui
 }

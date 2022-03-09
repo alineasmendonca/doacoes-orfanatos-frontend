@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://doacoes-orfanatos.herokuapp.com'
+  baseUrl: 'https://doacoes-orfanatos.herokuapp.com',
+  // baseUrl: 'http://localhost:8080',
+  clientId: 'my-angular-app',
+  clientSecret: '@321',
+  obterTokenUrl: '/oauth/token'
 };
 
 /*
