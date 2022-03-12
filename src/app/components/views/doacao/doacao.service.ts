@@ -32,7 +32,7 @@ export class DoacaoService {
 
 
   create(doacao: Doacao): Observable<Doacao>{
-    const url = `${this.baseUrl}/doacoes`;
+    const url = `${this.baseUrl}/doacoes/incluir`;
     return this.http.post<Doacao>(url, doacao);
   }
 
