@@ -33,7 +33,7 @@ export class DoacaoCreateComponent implements OnInit {
 
     }, (err)=>{
       this.router.navigate(['doacoes']);
-      this.service.mensagem('Erro ao cadastrar livro. Tente novamente mais tarde.');
+      this.service.mensagem('Erro ao cadastrar doação. Tente novamente mais tarde.');
     })
 
   }

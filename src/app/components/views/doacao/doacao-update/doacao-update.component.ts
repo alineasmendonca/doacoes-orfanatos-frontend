@@ -37,7 +37,7 @@ export class DoacaoUpdateComponent implements OnInit {
       this.service.mensagem('Doação alterada com sucesso.');
     }, err => {
       this.router.navigate(['doacoes']);
-      this.service.mensagem('Falha ao alterar livro. Tente novamente mais tarde.');
+      this.service.mensagem('Falha ao alterar doação. Tente novamente mais tarde.');
       for(let i= 0; i < err.error.errors.length; i++){
         this.service.mensagem(err.error.errors[i].message);
       }
