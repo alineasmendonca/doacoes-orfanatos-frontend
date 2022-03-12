@@ -41,9 +41,9 @@ export class DoacaoService {
     return this.http.delete<void>(url);
   }
 
-  update(doacao: Doacao): Observable<void>{
+  update(doacao: Doacao): Observable<Doacao>{
     const url = `${this.baseUrl}/doacoes/${doacao.id}`;
-    return this.http.put<void>(url, doacao);
+    return this.http.put<Doacao>(url, doacao);
   }
 
   mensagem(str: string): void {

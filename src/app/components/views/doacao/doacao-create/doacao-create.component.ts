@@ -22,7 +22,7 @@ export class DoacaoCreateComponent implements OnInit {
 
   }
 
-  cadastrarLivro(): void {
+  cadastrarDoacao(): void {
     this.doacao.descricao = this.descricao.value;
     this.doacao.quantidade = this.quantidade.value;
     this.doacao.categoria = {id: 4, nome:'', descricao:''};
@@ -39,12 +39,22 @@ export class DoacaoCreateComponent implements OnInit {
   }
 
   cancelar(): void {
-
+    this.router.navigate(['doacoes']);
   }
 
-  retornaMensagemDeErro() {
-    if(this.descricao.invalid){
-      return 'O campo Descrição deve ter entre 3 e 400 caracteres.';
+  retornaMensagemDeErroDescricao() {
+    if(!this.descricao){
+      return 'O campo Descrição é obrigatório.';
+    }
+    if(this.quantidade.invalid){
+      return 'O campo Quantidade deve ser maior do que zero.';
+    }
+    return false;
+  }
+
+  retornaMensagemDeErroQuantidade() {
+    if(!this.quantidade){
+      return 'O campo Quantidade é obrigatório.';
     }
     if(this.quantidade.invalid){
       return 'O campo Quantidade deve ser maior do que zero.';
